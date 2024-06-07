@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV 프로그램 양식</title>
+</head>
+<body>
+    <h1>최근에 보았던 TV 프로그램</h1>
+    <form id="tv-program-form">
+        <label for="program-name">1. 프로그램 이름:</label><br>
+        <input type="text" id="program-name" name="program-name"><br><br>
+
+        <label>2. 프로그램 종류:</label><br>
+        <input type="radio" id="가요" name="program-type" value="가요">
+        <label for="가요">가요</label>
+        <input type="radio" id="뉴스" name="program-type" value="뉴스">
+        <label for="뉴스">뉴스</label>
+        <input type="radio" id="다큐멘터리" name="program-type" value="다큐멘터리">
+        <label for="다큐멘터리">다큐멘터리</label>
+        <input type="radio" id="드라마" name="program-type" value="드라마">
+        <label for="드라마">드라마</label>
+        <input type="radio" id="스포츠" name="program-type" value="스포츠">
+        <label for="스포츠">스포츠</label>
+        <input type="radio" id="영화" name="program-type" value="영화">
+        <label for="영화">영화</label>
+        <input type="radio" id="예능" name="program-type" value="예능">
+        <label for="예능">예능</label>
+        <input type="radio" id="종교" name="program-type" value="종교">
+        <label for="종교">종교</label>
+        <input type="radio" id="기타" name="program-type" value="기타">
+        <label for="기타">기타</label><br><br>
+
+        <label for="channel-number">3. 채널 번호:</label><br>
+        <input type="text" id="channel-number" name="channel-number"><br><br>
+
+        <label for="broadcaster">4. 방송사:</label><br>
+        <input type="text" id="broadcaster" name="broadcaster"><br><br>
+
+        <label for="airing-day">5. 방영시간:</label><br>
+        <select id="airing-day" name="airing-day">
+            <option value="월요일">월요일</option>
+            <option value="화요일">화요일</option>
+            <option value="수요일">수요일</option>
+            <option value="목요일">목요일</option>
+            <option value="금요일">금요일</option>
+            <option value="토요일">토요일</option>
+            <option value="일요일">일요일</option>
+        </select>
+        <input type="text" id="airing-time" name="airing-time" placeholder="시간"><br><br>
+
+        <label for="host-name">6. 사회자 혹은 주인공 이름:</label><br>
+        <input type="text" id="host-name" name="host-name"><br><br>
+
+        <label for="program-content">7. 프로그램 내용:</label><br>
+        <textarea id="program-content" name="program-content" rows="4" cols="50"></textarea><br><br>
+
+        <button type="button" onclick="submitForm()">제출</button>
+        <a href="next_form.html">
+            <button type="button">다음 사람 문제로 넘어가기</button>
+        </a>
+    </form>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('tv-program-form');
+            const formData = new FormData(form);
+            const formEntries = Object.fromEntries(formData.entries());
+            console.log(formEntries);
+        }
+    </script>
+</body>
+</html>

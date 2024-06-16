@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노인인지재활_1번 문제</title>
+</head>
+<style>
+    body{
+        margin: 0 auto; 
+        background-color:rgba(255, 255, 255, 0.845);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+    }
+    .main-body{
+        width: 800px;
+        padding: 30px 40px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.149);
+        background-color: white;
+    }
+    #date{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    #date button{
+        border: none;
+    }
+    #date input{
+        height: 20px;
+        width: 80px;
+        text-align: right;
+        margin: 5px;
+        font-size:15px;
+    }
+    img{
+        width: 280px;
+        height: 180px;
+    }
+    #quiz{
+        display: flex;
+        justify-content: center;
+    }
+    .table_text{
+        text-align: center;
+        padding: 10px;
+
+    }
+    
+    #example{
+        display: flex;
+        justify-content: center;
+    }
+    #ex_table{
+        border-radius: 20px;
+        height: 500px;
+    }
+    table{
+        border-collapse:collapse;
+        text-align: center;
+        align-items: center;
+    }
+    #next-page{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #next{
+        border-radius: 5px 5px 5px 5px;
+        padding: 5px 10px 5px 10px;
+    }
+    button{
+        background-color: white;
+        margin: 1px;
+        border: 1px solid rgb(172, 172, 172);
+        padding: 3px 10px 3px 10px;
+    }
+    #check{
+        height: 25px;
+    }
+    #q_table{
+        width: 600px;
+    }
+    #q_table input{
+        width: 180px;
+        padding: 5px;
+        margin: 5px;
+        border: none;
+        text-align: center;
+    }
+    .answerBtn{
+        display: flex;
+        justify-content: flex-end;
+
+    }
+    #done-num1{
+        border-radius: 5px 5px 5px 5px;
+        padding: 5px 10px 5px 10px;
+        margin: 10px;
+    }
+    #done-num3{
+        border-radius: 5px 5px 5px 5px;
+        padding: 5px 10px 5px 10px;
+        margin: 10px;
+    }
+</style>
+<body>
+    <div class="main-body">
+        <div class="num" id="num1">
+            <div class="quest">
+                <h4>🌱 오늘의 날짜를 적고, 오늘의 날씨를 클릭하세요</h4>
+            </div>
+            <div class="answer" id="date">
+                <input type="text" class="date-input">년 &nbsp;
+                <input type="text" class="date-input">월 &nbsp;
+                <input type="text" class="date-input">일 &nbsp;
+                <input type="text" class="date-input">요일 &nbsp;
+                날씨&nbsp;
+                <button class="date-btn" id="sun"><i class="fa-solid fa-sun"></i></button>
+                <button class="date-btn" id="cloud"><i class="fa-solid fa-cloud"></i></button>
+                <button class="date-btn" id="rain"><i class="fa-solid fa-umbrella"></i></button>
+                <button class="date-btn" id="snow"><i class="fa-solid fa-snowflake"></i></button>
+            </div>
+            <div class="answerBtn"><button id="done-num1">다 했어요 ! (클릭)</button></div>
+
+        </div>
+        &emsp;
+        <div class="num" id="num2">
+            <div class="quest">
+                <h4>🌱 다음은 <b>변비에 좋은 식품</b>6가지 입니다. 소리 내어 읽어보세요</h4>
+                <h5>✔️ (글씨에 마우스를 갖다 대면 글씨가 커집니다)</h5>
+
+
+            </div>
+            <div class="answer" id="example">
+                <table id="ex_table" border="2">
+                    <tr>
+                        <td ><img src="img/팥.jpeg"></td>
+                        <td><img src="img/현미.png"></td>
+                    </tr>
+                    <tr>
+                        <td  class="table_text">팥</td>
+                        <td  class="table_text">현미</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/양배추.jpg"></td>
+                        <td><img src="img/오이.jpg"></td>
+                    </tr>
+                    <tr>
+                        <td  class="table_text">양배추</td>
+                        <td  class="table_text">오이</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/자두.jpg"></td>
+                        <td><img src="img/키위.jpg"></td>
+                    </tr>
+                    <tr>
+                        <td class="table_text">자두</td>
+                        <td class="table_text">키위</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        &emsp;
+
+        <div class="num" id="num3">
+            <div class="quest">
+                <h4>🌱 다음 식품을 기억하기 쉽게 3가지 분류로 나눠보세요.(2가지씩)</h4>
+                <p>✔️ 정답을 맞추면 제목이 회색으로 변해요</p>
+
+            </div>
+            <div class="answer" id="quiz">
+                <table id="q_table" border="2">
+                    <tr>
+                        <th class="num3Title" id="grainTh">곡물</th>
+                        <th class="num3Title" id="fruitTh">과일</th>
+                        <th class="num3Title" id="vegetableTh">야채</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="num3-Input" id="grain"></td>
+                        <td><input type="text" class="num3-Input" id="fruit"></td>
+                        <td><input type="text" class="num3-Input" id="vegetable"></td>
+                    </tr>
+                </table>
+                <div class="answerBtn"><button id="done-num3">다 했어요 ! (클릭)</button></div>
+
+            </div>
+            
+        </div>
+        &emsp;
+        <h4>🌱 변비에 좋은 식품을 기억해주세요.</h4>
+        <div id="next-page"><button id="next">다음 문제로 ▶</button></div>
+    </div>
+    <script>
+        const $num3Input=document.querySelectorAll('.num3-Input');
+        const $dateInput=document.querySelectorAll('.date-input');
+        const $doneNum3=document.querySelector('#done-num3');
+        const $doneNum1=document.querySelector('#done-num1');
+        const $dateBtn=document.querySelectorAll('.date-btn');
+        const $next=document.querySelector('#next');
+        const $tableText=document.querySelectorAll('.table_text');
+        const $num3Title=document.querySelectorAll('.num3Title');
+
+
+        const $grain=document.getElementById('grain');
+        const $fruit=document.getElementById('fruit');
+        const $vegetable=document.getElementById('vegetable');
+
+        const grainList=['팥','현미'];
+        const fruitList=['자두','키위'];
+        const vegetableList=['양배추','오이'];
+       
+        
+        $dateBtn.forEach(id => {
+            id.addEventListener('click', () => {
+                    if (id.style.backgroundColor === 'lightgreen') {
+                        id.style.backgroundColor = '';
+                    } else {
+                        $dateBtn.forEach(otherId => otherId.style.backgroundColor = '');
+                        id.style.backgroundColor = 'lightgreen';
+                    }
+                });
+        });
+
+        $tableText.forEach(tableText => {
+            tableText.addEventListener('mouseenter', () => {
+                tableText.style.transform = 'scale(2)';
+            });
+            tableText.addEventListener('mouseleave', () => {
+                tableText.style.transform = 'scale(1)';
+            });
+        });
+            
+
+        const inputCheck=(input)=>{
+            let allInput=true;
+            input.forEach(input => {
+                if (input.value.trim() === '') {
+                    allInput=false;
+                }
+            });
+            return allInput;
+        }; 
+
+
+        $doneNum1.addEventListener('click',()=>{
+            const boolCheck=inputCheck($dateInput);
+            if(!boolCheck){
+                alert('모든 칸을 입력해주시고 날씨도 체크해주세요!');
+                console.log('false');
+            }
+            else{
+                console.log('true');
+                alert('입력 완료! 문제로 넘어가세요!');
+            }
+        });
+
+        $doneNum3.addEventListener('click',()=>{    
+            const boolCheck=inputCheck($num3Input);
+
+            if(!boolCheck){
+                alert('빈칸이 있습니다 모든 칸을 입력해주세요 !');
+                console.log('false');
+            }else{
+                console.log('true');
+                let grainInput = document.getElementById('grain').value.trim().split(' ').join('');
+                let fruitInput = document.getElementById('fruit').value.trim().split(' ').join('');
+                let vegetableInput = document.getElementById('vegetable').value.trim().split(' ').join('');   
+
+                const CorrectCheck = (input, list, num3Id ,th) => {
+                    let correctList = [];
+                    let i = 0;
+
+                    const numId = {
+                        '곡물': 'grain',
+                        '과일': 'fruit',
+                        '야채': 'vegetable'
+                    };
+
+                    while (i < input.length) {
+                        let correct = false;
+                        for (let j = 1; j < 4; j++) {   
+                            let sliceInput = input.slice(i, i + j);
+                            if (list.includes(sliceInput)) {
+                                correctList.push(sliceInput);
+                                i += j;
+                                correct = true;
+                                break;
+                            }
+                        }
+                        if (!correct) {
+                            i++;
+                        }
+                    }
+                    const listName = document.getElementById(numId[num3Id]);
+                    const listTh=document.getElementById(th)
+                    if (correctList.length === list.length) {
+                        alert(`<${num3Id}> 입력하신 것 모두 정답입니다 !`);
+                            listName.disabled = true; 
+                            listTh.style.backgroundColor='lightgray';
+                    } else if (correctList.length > 0) {
+                        alert(`<${num3Id}> 1개 정답 ! 나머지 1개를 다시 적어주세요 !`);
+                    } else {
+                        alert(`<${num3Id}> 전부 오답입니다 다시 입력해주세요 !`);
+                        }
+                };
+                CorrectCheck(grainInput, grainList, '곡물','grainTh');
+                CorrectCheck(fruitInput, fruitList, '과일',"fruitTh");
+                CorrectCheck(vegetableInput, vegetableList, '야채',"vegetableTh");
+
+                let num=0;
+                $num3Title.forEach(num3Title => {
+                    if (num3Title.style.backgroundColor==='lightgray') {
+                        num++;
+                    }
+                });
+                if(num==3){
+                    alert('정답을 다 맞추셨어요 ! 다음 문제로 넘어가세요 !');
+                    $doneNum3.disabled='true';
+                }
+            }
+
+        });
+
+        $nextButton = document.querySelector("#next");
+        $nextButton.addEventListener("click", () => {
+        window.location.href = "김진학.html"; 
+      });
+        
+    </script>
+    <script src="https://kit.fontawesome.com/f730805eb0.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

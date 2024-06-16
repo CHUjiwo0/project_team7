@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노인 인지 재활문제</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        color: #333;
+    }
+    h3 {
+        text-align: center;
+        padding: 20px 0;
+    }
+    div {
+        text-align: center;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    #quiz-container {
+        background-color: white;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    b {
+        color: red;
+    }
+    ol {
+        text-align: left;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 20px;
+    }
+    input[type="radio"] {
+        margin: 0 10px;
+    }
+    input[type="text"] {
+        width: 100px;
+        padding: 5px;
+        margin: 0 10px;
+        border: 1px solid gray;
+        border-radius: 4px;
+    }
+    button {
+        padding: 5px 10px;
+        color: white;
+        background-color: greenyellow;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: green;
+    }
+    #quiz-image {
+        transition: opacity 1s;
+    }
+    #quiz-image.hidden {
+        opacity: 0;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div id="quiz-container">
+    <h3>자전거 안전운행 수칙을 확인하고, 자전거 코스 문제를 풀어보세요.</h3>
+    <div id="quiz-image"><img src="A단계1_53.jpg"></div>
+    <br>
+    <b>이미지는 60초 후 사라집니다.</b>
+    <br>
+    <ol>
+        <li>
+            안전운행 수칙을 보며 맞으면 O, 틀리면 X를 적어보세요.
+            <div>소리종을 사용합니다 
+                <input type="radio" id="q1_o" name="q1" value="true">O
+                <input type="radio" id="q1_x" name="q1" value="false">X
+            </div>
+            <div>자전거를 타며 음악을 듣거나 전화통화를 합니다
+                <input type="radio" id="q2_o" name="q2" value="true">O
+                <input type="radio" id="q2_x" name="q2" value="false">X
+            </div>
+            <div>보행자에게는 항상 양보하세요
+                <input type="radio" id="q3_o" name="q3" value="true">O
+                <input type="radio" id="q3_x" name="q3" value="false">X
+            </div>
+            <div>도로가 혼잡할 때는 속도를 내서 빨리 갑니다
+                <input type="radio" id="q4_o" name="q4" value="true">O
+                <input type="radio" id="q4_x" name="q4" value="false">X
+            </div>
+            <div>어두운 상황에서는 항상 전조등과 적색 후미등을 켭니다
+                <input type="radio" id="q5_o" name="q5" value="true">O
+                <input type="radio" id="q5_x" name="q5" value="false">X
+            </div>
+        </li>
+        <br><br>
+        <li>
+            경숙 씨는 아라한강갑문에서 출발하여 광나루 한강공원에 도착하였습니다. 소요된 시간과 자전거를 탄 거리를 적어보세요.
+            <br>
+            <b>시간 답안 작성시 분단위로 입력해주세요.</b>
+            <div>소요시간: <input type="text" id="num1_time">분 거리: <input type="text" id="num1_distance">km <button id="num1_b">입력</button> </div>
+        </li>
+        <br><br>
+        <li>
+            기욱 씨는 오후 3시 30분에 아라한강갑문에서 출발하여 팔당대교까지 완주 후 자신의 동네인 잠원 한강공원으로 돌아갔습니다. 기욱 씨가 잠원 한강공원에 도착한 시간과 총 거리를 적어보세요.
+            <br>
+            <b>시간 답안 작성시 X시 X분 형식으로 입력해주세요.</b>
+            <div>도착시간: <input type="text" id="num2_time">분 거리: <input type="text" id="num2_distance">km <button id="num2_b">입력</button> </div>
+        </li>
+        <br><br>
+        <li>
+            자전거 운동 시 30분당 300칼로리라 소모됩니다. 길회씨는 강서 한강공원에서 출발하여 광나루 한강공원에 도착했을 때 소모되는 칼로리량은 얼마인가요?
+            <div>칼로리 소모량: <input type="text" id="num3_calorie"> <button id="num3_b">입력</button> </div>
+        </li>
+    </ol>
+</div>
+<script>
+    const $imageDisappear = document.querySelector('#quiz-image');
+    
+    setTimeout(() => {
+        $imageDisappear.classList.add('hidden');
+    }, 60000); 
+
+    const oxResult = {
+        q1: 'true',
+        q2: 'false',
+        q3: 'true',
+        q4: 'false',
+        q5: 'true'
+    };
+
+    function Question(questionId, correctValue) {
+        const q_o = document.querySelector(`#${questionId}_o`);
+        const q_x = document.querySelector(`#${questionId}_x`);
+
+        q_o.addEventListener('click', () => {
+            if (q_o.value === correctValue) { alert('정답입니다');
+            } else {
+                alert('오답입니다. 다시 시도하세요.');
+            }
+        });
+
+        q_x.addEventListener('click', () => {
+            if (q_x.value === correctValue) { alert('정답입니다');
+            } else {
+                alert('오답입니다. 다시 시도하세요');
+            }
+        });
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        Question(`q${i}`, oxResult[`q${i}`]);
+    }
+
+    document.querySelector('#num1_b').addEventListener('click', () => {
+        const num1time = document.querySelector('#num1_time').value;
+        const num1distance = document.querySelector('#num1_distance').value;
+        const num1ResultTime = "65";
+        const num1Resultdistance = "17";
+
+        let num1ResultMessage = "";
+
+        if (num1time && num1distance) {
+            if (num1time === num1ResultTime && num1distance === num1Resultdistance) {
+                num1ResultMessage = `정답입니다.`;
+            } else {
+                num1ResultMessage = `오답입니다. 다시 시도하세요.`;
+            }
+        } else {
+            num1ResultMessage = '시간과 거리를 모두 입력해주세요.';
+        }
+        alert(num1ResultMessage);
+    });
+
+    document.querySelector('#num2_b').addEventListener('click', () => {
+        const num2time = document.querySelector('#num2_time').value;
+        const num2distance = document.querySelector('#num2_distance').value;
+        const num2ResultTime = "5시"; 
+        const num2Resultdistance = "24";
+
+        let num2ResultMessage = "";
+
+        if (num2time && num2distance) {
+            if (num2time === num2ResultTime && num2distance === num2Resultdistance) {
+                num2ResultMessage = `정답입니다.`;
+            } else {
+                num2ResultMessage = `오답입니다. 다시 시도하세요.`;
+            }
+        } else {
+            num2ResultMessage = '시간과 거리를 모두 입력해주세요.';
+        }
+        alert(num2ResultMessage);
+    });
+
+    document.querySelector('#num3_b').addEventListener('click', () => {
+            const num3Calorie = document.querySelector('#num3_calorie').value;
+            const num3Result = "300";
+            
+            let num3ResultMessage = "";
+
+            if (num3Calorie === num3Result) {
+                num3ResultMessage = `정답입니다.`;
+                } else {
+                    num3ResultMessage = '오답입니다. 다시 시도하세요.'
+                } 
+                alert(num3ResultMessage);
+        });
+    </script>
+</body>
+</html>

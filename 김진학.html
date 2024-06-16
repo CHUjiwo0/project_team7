@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노인 인지 재활 문제</title>
+  </head>
+  <style>
+    .text-red {
+    color: red;
+}
+    .text-underline {
+      text-decoration: underline;
+    }
+    .problem-box {
+        border: solid gray 3px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .problem-box_header {
+      font-weight: bold;
+      padding: 10px;
+      background-color: blue;
+      text-align: center;
+      color: white;
+    }
+    .problem-box li {
+      line-height: 250%;
+    }
+    input {
+      border-width: 0 0 1px;
+    }
+    .contents-footer {
+      margin-top: 30px;
+    }
+    button {
+      color: white;
+      background-color: blue;
+      border: solid  blue 1px;
+      border-radius: 3px;
+      padding: 10px;
+      float: right;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+
+    #solve_problem,
+    #result_btn,
+    #next_btn {
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="contents-body">
+      <div id="view_problem">
+        <h3>
+          다음은 일상생활에 필요한
+          <strong class="text-red">전기절약 방법</strong> 입니다.
+          <br />
+          소리 내어 읽어 보세요.
+        </h3>
+        <div class="problem-box">
+          <div class="problem-box_header">전기절약 방법</div>
+          <ol>
+            <li><strong class="text-underline">쓰지 않는</strong> 가전제품의 플러그를 뽑는다.</li>
+            <li><strong class="text-underline">15분 이상</strong> 사용하지 않는 형광등은 꺼둔다.</li>
+            <li>일반 <strong class="text-underline">백열구보다 형광등</strong>을 사용한다.</li>
+            <li>냉장고는 <strong class="text-underline">통풍이 잘 되는 곳</strong>에 둔다.</li>
+            <li>탈수는 <strong class="text-underline">5분 이내</strong>가 적당하다.</li>
+            <li>
+              <strong class="text-underline">여름에는 26도, 겨울에는 18~20도</strong>의 실내 적정 온도를 유지한다.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div id="solve_problem">
+        <h3>
+          앞서 기억해 둔
+          <strong class="text-red">전기절약 방법</strong>
+          을 알맞게 선택해주세요.
+        </h3>
+        <div class="problem-box">
+          <div class="problem-box_header">전기절약 방법</div>
+          <ol>
+            <li>
+              <input type="text" id="question1" readonly onfocus="this.blur()" /> 가전제품의 플러그를 뽑는다.
+              <div>
+                <input type="radio" name="question1_radio" id="question1_1" />
+                <label for="example1">15분 이상</label>
+                <input type="radio" name="question1_radio" id="question1_2" />
+                <label for="example2">백열구</label>
+                <input type="radio" name="question1_radio" id="question1_3" />
+                <label for="example3">통풍</label>
+                <input type="radio" name="question1_radio" id="question1_4" />
+                <label for="example4">5분 이내</label>
+                <input type="radio" name="question1_radio" id="question1_5" />
+                <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question1_radio" id="question1_6" />
+                <label for="example6">18~20도</label>
+              </div>
+            </li>
+            <li>
+              <input type="text" id="question2" readonly onfocus="this.blur()" /> 사용하지 않는 형광등은 꺼둔다.
+              <div>
+                <input type="radio" name="question2_radio" id="question2_1" /> <label for="example1">15분 이상</label>
+                <input type="radio" name="question2_radio" id="question2_2" /> <label for="example2">백열구</label>
+                <input type="radio" name="question2_radio" id="question2_3" /> <label for="example3">통풍</label>
+                <input type="radio" name="question2_radio" id="question2_4" /> <label for="example4">5분 이내</label>
+                <input type="radio" name="question2_radio" id="question2_5" /> <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question2_radio" id="question2_6" /> <label for="example6">18~20도</label>
+              </div>
+            </li>
+            <li>
+              일반 <input type="text" id="question3" readonly onfocus="this.blur()" />보다 형광등을 사용한다.
+              <div>
+                <input type="radio" name="question3_radio" id="question3_1" /> <label for="example1">15분 이상</label>
+                <input type="radio" name="question3_radio" id="question3_2" /> <label for="example2">백열구</label>
+                <input type="radio" name="question3_radio" id="question3_3" /> <label for="example3">통풍</label>
+                <input type="radio" name="question3_radio" id="question3_4" /> <label for="example4">5분 이내</label>
+                <input type="radio" name="question3_radio" id="question3_5" /> <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question3_radio" id="question3_6" /> <label for="example6">18~20도</label>
+              </div>
+            </li>
+            <li>
+              냉장고는 <input type="text" id="question4" readonly onfocus="this.blur()" />이 잘 되는 곳에 둔다.
+              <div>
+                <input type="radio" name="question4_radio" id="question4_1" /> <label for="example1">15분 이상</label>
+                <input type="radio" name="question4_radio" id="question4_2" /> <label for="example2">백열구</label>
+                <input type="radio" name="question4_radio" id="question4_3" /> <label for="example3">통풍</label>
+                <input type="radio" name="question4_radio" id="question4_4" /> <label for="example4">5분 이내</label>
+                <input type="radio" name="question4_radio" id="question4_5" /> <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question4_radio" id="question4_6" /> <label for="example6">18~20도</label>
+              </div>
+            </li>
+            <li>
+              탈수는 <input type="text" id="question5" readonly onfocus="this.blur()" />가 적당하다.
+              <div>
+                <input type="radio" name="question5_radio" id="question5_1" /> <label for="example1">15분 이상</label>
+                <input type="radio" name="question5_radio" id="question5_2" /> <label for="example2">백열구</label>
+                <input type="radio" name="question5_radio" id="question5_3" /> <label for="example3">통풍</label>
+                <input type="radio" name="question5_radio" id="question5_4" /> <label for="example4">5분 이내</label>
+                <input type="radio" name="question5_radio" id="question5_5" /> <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question5_radio" id="question5_6" /> <label for="example6">18~20도</label>
+              </div>
+            </li>
+            <li>
+              여름에는 26도, 겨울에는<input type="text" id="question6" readonly onfocus="this.blur()" /> 의 실내 적정
+              온도를 유지한다.
+              <div>
+                <input type="radio" name="question6_radio" id="question6_1" /> <label for="example1">15분 이상</label>
+                <input type="radio" name="question6_radio" id="question6_2" /> <label for="example2">백열구</label>
+                <input type="radio" name="question6_radio" id="question6_3" /> <label for="example3">통풍</label>
+                <input type="radio" name="question6_radio" id="question6_4" /> <label for="example4">5분 이내</label>
+                <input type="radio" name="question6_radio" id="question6_5" /> <label for="example5">쓰지 않는</label>
+                <input type="radio" name="question6_radio" id="question6_6" /> <label for="example6">18~20도</label>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="contents-footer">
+      <div id="view_footer">
+        <span class="text-underline"> <strong class="text-red">전기절약 방법</strong>을 기억해주세요. </span>
+        <button id="solve_btn" type="button">문제풀기</button>
+      </div>
+      <button id="result_btn" type="button">결과확인</button>
+      <button id="next_btn" type="button">다음</button>
+
+    </div>
+    <script>
+     
+      $solveButton = document.querySelector("#solve_btn");
+      $solveButton.addEventListener("click", () => {
+        document.querySelector("#view_footer").style.display = "none";
+        document.querySelector("#view_problem").style.display = "none";
+        document.querySelector("#solve_problem").style.display = "block";
+        document.querySelector("#result_btn").style.display = "block";
+      });
+
+      
+      const multipleChoiceList = ["15분이상", "백열구", "통풍", "5분 이내", "쓰지 않는", "18~20도"];
+      const answer = [5, 1, 2, 3, 4, 6];
+      const myAnswer = [null, null, null, null, null, null];
+
+      $radioButtons = document.querySelectorAll("input[type='radio']");
+      $radioButtons.forEach((radio) => {
+        radio.addEventListener("click", (e) => {
+          const questionInfo = radio.id.split("_");
+          const id = questionInfo.at(0);
+          const selectedNum = Number(questionInfo.at(1));
+
+          
+          $input = document.querySelector("#" + id);
+          $input.value = multipleChoiceList[selectedNum - 1];
+
+          
+          const questionNumIndex = Number(id.replace("question", "")) - 1;
+          myAnswer[questionNumIndex] = selectedNum;
+        });
+      });
+
+      $resultButton = document.querySelector("#result_btn");
+      $resultButton.addEventListener("click", () => {
+        
+        if (myAnswer.includes(null)) {
+          alert("문제를 모두 풀어주세요.");
+          return;
+        }
+
+        
+        for (let i = 0; i < 6; i++) {
+          if (answer[i] !== myAnswer[i]) {
+            $falseInput = document.querySelector("#question" + (i + 1));
+
+            $falseInput.value = multipleChoiceList[answer[i] - 1];
+            $falseInput.classList.add("text-red");
+          }
+        }
+
+        $radioButtons.forEach((radio) => {
+          radio.disabled = true;
+        });
+        $resultButton.style.display = "none";
+        document.querySelector("#next_btn").style.display = "block";
+      });
+
+    
+      $nextButton = document.querySelector("#next_btn");
+      $nextButton.addEventListener("click", () => {
+        window.location.href = "이재근.html"; 
+      });
+
+      
+    </script>
+  </body>
+</html>
